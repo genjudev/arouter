@@ -15,5 +15,4 @@ arouter("content", {
         "#impressum": "pages/impressum.html",
         "#duckduckgo": "https://duckduckgo.com/"
     });
-</script>
 ```
