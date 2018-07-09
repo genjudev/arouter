@@ -18,7 +18,6 @@ along with ARouter.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 function arouter(contentelement, config) {
-    document.getElementById(contentelement).innerHTML = "";
     var load = function () {
         if (config[location.hash]) {
             fetch(config[location.hash])
@@ -34,7 +33,6 @@ function arouter(contentelement, config) {
     };
 
     // init load, in case of first time loading
+    document.getElementById(contentelement).innerHTML = "";
     load();
-
-
 }
