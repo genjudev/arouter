@@ -1,9 +1,8 @@
 # arouter
-### ES6+, Anchor Router
+### JavaScript, ES5+, Anchor Router
 for the people who wants just a little HTML site and a little routing..
 
-its not even worth to use a class, but here it is
-
+its not even worth to write a function, but here you go..
 
 # HowTo
 ```html
@@ -12,9 +11,9 @@ its not even worth to use a class, but here it is
 <div id="content"></div>
 ```
 ```javascript
-let aroute = new ARouter("content", {
+arouter("content", {
         "#impressum": "pages/impressum.html",
-        "#duckduckgo": "https://duckduckgo.com/",
-        "#": "index.html"
+        "#duckduckgo": "https://duckduckgo.com/"
     });
+</script>
 ```
