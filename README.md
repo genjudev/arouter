@@ -24,5 +24,9 @@ javascript
 arouter("content", {
         "#impressum": "pages/impressum.html",
         "#duckduckgo": "https://duckduckgo.com/"
-    });
+    }, true);
 ```
+Parameter:
+1. ID of element to fill
+2. anchor url mapping
+3. caching
