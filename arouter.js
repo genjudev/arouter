@@ -18,8 +18,8 @@ along with ARouter.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 function arouter(contentelement, config) {
-    location.hash = '';
-    window.onhashchange = function (e) {
+    document.getElementById(contentelement).innerHTML = "";
+    var load = function () {
         if (config[location.hash]) {
             fetch(config[location.hash])
                 .then(function (res) {
@@ -28,5 +28,13 @@ function arouter(contentelement, config) {
                 document.getElementById(contentelement).innerHTML = res;
             });
         }
-    }
+    };
+    window.onhashchange = function () {
+        load();
+    };
+
+    // init load, in case of first time loading
+    load();
+
+
 }
