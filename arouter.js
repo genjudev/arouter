@@ -17,15 +17,26 @@ You should have received a copy of the GNU General Public License
 along with ARouter.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-function arouter(contentelement, config) {
+function arouter(contentelement, config, cache) {
+
+    // cache response text, if enabled
+    var cached = {};
+
     var load = function () {
         if (config[location.hash]) {
-            fetch(config[location.hash])
-                .then(function (res) {
-                    return res.text();
-                }).then(function (res) {
-                document.getElementById(contentelement).innerHTML = res;
-            });
+            if (cached[location.hash]) {
+                document.getElementById(contentelement).innerHTML = cached[location.hash];
+            } else {
+                fetch(config[location.hash])
+                    .then(function (res) {
+                        return res.text();
+                    }).then(function (res) {
+                    if (cache) {
+                        cached[location.hash] = res;
+                    }
+                    document.getElementById(contentelement).innerHTML = res;
+                });
+            }
         }
     };
     window.onhashchange = function () {
